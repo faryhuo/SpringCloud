@@ -1,0 +1,10 @@
+server:
+  port: 2181
+spring:
+  application:
+    name: orderservice
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8111/eureka
+
