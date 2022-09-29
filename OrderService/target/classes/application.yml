@@ -3,8 +3,18 @@ server:
 spring:
   application:
     name: orderservice
+#feign:
+#  client:
+#    config:
+#      default:
+#        loggerLevel: FULL
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:8111/eureka
+logging:
+  level:
+    com:
+      springcloud:
+        service: debug
 

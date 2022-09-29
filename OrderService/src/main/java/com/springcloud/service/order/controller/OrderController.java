@@ -1,8 +1,11 @@
 package com.springcloud.service.order.controller;
 
+import com.springcloud.service.order.client.UserClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,11 +14,19 @@ import java.util.Map;
 @RequestMapping("/order")
 public class OrderController {
 
+    @Autowired
+    RestTemplate restTemplate;
+
+    @Autowired
+    UserClient client;
+
     @GetMapping("/all")
-    public Object getUserList(){
-        Map<String,String> object =new HashMap<>();
+    public Object getOrderList(){
+        Map<String,Object> object =new HashMap<>();
         object.put("name","user1");
-        object.put("age","11");
+        //String user= restTemplate.getForEntity("http://userservice/user/all",String.class).getBody();
+        Object user= client.findById("2");
+        object.put("age",user);
         return object;
     }
 

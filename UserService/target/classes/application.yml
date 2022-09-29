@@ -1,8 +1,8 @@
 server:
-  port: 2181
+  port: 2184
 spring:
   application:
-    name: orderservice
+    name: userservice
 eureka:
   client:
     service-url:
