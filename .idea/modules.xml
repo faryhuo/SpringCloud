@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feign-api/feign-api.iml" filepath="$PROJECT_DIR$/feign-api/feign-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/OrderService/order-serveice.iml" filepath="$PROJECT_DIR$/OrderService/order-serveice.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserService/user-serveice.iml" filepath="$PROJECT_DIR$/UserService/user-serveice.iml" />
     </modules>

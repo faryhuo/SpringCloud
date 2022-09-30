@@ -3,7 +3,8 @@ package com.springcloud.service.order;
 
 
 
-import com.springcloud.service.order.config.DefaultFeignConfiguration;
+import com.springcloud.feign.api.client.UserClient;
+import com.springcloud.feign.api.config.DefaultFeignConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class})
 @SpringBootApplication
-@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class)
+@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class,clients = {UserClient.class})
 public class Application {
 
     //Application entry

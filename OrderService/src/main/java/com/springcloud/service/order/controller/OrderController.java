@@ -1,6 +1,6 @@
 package com.springcloud.service.order.controller;
 
-import com.springcloud.service.order.client.UserClient;
+import com.springcloud.feign.api.client.UserClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

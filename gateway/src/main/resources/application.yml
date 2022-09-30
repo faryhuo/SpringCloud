@@ -1,0 +1,40 @@
+server:
+  port: 8555
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        add-to-sample-url-handle-mapping: ture #fixed the issue that options request be interception.
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://127.0.0.1:8080"
+              - "http://localhost:8555"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeades: "*"  #allow the request has the headers
+            allowCredentials: true #allow the request has the cookie
+      routes:
+        - id: user-service
+          uri: lb://userservice
+          predicates:
+            - Path=/user/**
+          filters:
+            - AddRequestHeader=x-request-target,user
+        - id: order-service
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
+      default-filters:
+        - AddRequestHeader=x-request-id,gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8111/eureka
+

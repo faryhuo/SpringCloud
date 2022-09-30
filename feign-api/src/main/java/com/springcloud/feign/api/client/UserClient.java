@@ -1,4 +1,4 @@
-package com.springcloud.service.order.client;
+package com.springcloud.feign.api.client;
 
 
 import org.springframework.cloud.openfeign.FeignClient;

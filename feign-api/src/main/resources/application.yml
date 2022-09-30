@@ -12,13 +12,6 @@ feign:
     enable: true
     max-connections: 200
     max-connections-per-route: 50
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:8111/eureka
-logging:
-  level:
-    com:
-      springcloud:
-        service: debug
+
+
 

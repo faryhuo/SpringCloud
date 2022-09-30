@@ -4,8 +4,11 @@
     <groupId>spring-cloud-project</groupId>
     <artifactId>user-service</artifactId>
     <version>1.0</version>
+    <modules>
+        <module>feign-api</module>
+    </modules>
     <name>user-service</name>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
