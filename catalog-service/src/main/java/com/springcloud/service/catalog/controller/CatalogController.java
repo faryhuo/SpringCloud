@@ -1,5 +1,7 @@
 package com.springcloud.service.catalog.controller;
 
+import com.springcloud.service.catalog.entities.CatalogView;
+import com.springcloud.service.catalog.entities.ResponseEntity;
 import com.springcloud.service.catalog.service.CatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,8 @@ public class CatalogController {
     CatalogService catalogService;
 
     @GetMapping("/list/tree")
-    public Object listAllWithTree(){
-        return catalogService.listAllWithTree();
+    public ResponseEntity<CatalogView> listAllWithTree(){
+        return ResponseEntity.success(catalogService.listAllWithTree());
     }
 
 }

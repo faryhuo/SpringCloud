@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -36,7 +37,7 @@ public class CatalogServiceImpl implements CatalogService {
 
     private List<CatalogView> buildTreeList(List<Catalog> catalogs,long parentId){
         List<CatalogView> catalogViewList=new ArrayList<>();
-        catalogs.forEach((catalog)->{
+        catalogs.stream().sorted(Comparator.comparingInt(record -> (record.getSort() != null ? record.getSort() : 0))).forEach((catalog)->{
             if(parentId==catalog.getParentId()){
                 CatalogView catalogView=new CatalogView();
                 catalogView.setName(catalog.getName());

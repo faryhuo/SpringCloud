@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://8.219.183.208:8999/marketonline
+    username: fary
+    password: 85549060@fary
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: user-service
+server:
+   port: 8081
+mybatis:
+ mapper-locations: classpath:mapper/*.xml
+ #type-aliases-package: com.bilibili.follow.dao
+app:
+  swagger:
+    enable: true

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bilibili.follow.dao.UserFollowingDao">
+    <resultMap type="com.bilibili.follow.pojo.UserFollowing" id="userFollowingMap">
+        <result column="id" property="id"/>
+        <result column="user_id" property="userId"/>
+        <result column="following_id" property="followingId"/>
+        <result column="group_id" property="groupId"/>
+        <result column="create_date" property="createDate"/>
+        <result column="update_date" property="updateDate"/>
+    </resultMap>
+
+    <select id="getUserFollowingListByUserId" parameterType="java.lang.Long" resultMap="userFollowingMap" resultType="com.bilibili.follow.pojo.UserFollowing">
+        select * from t_user_following where user_id = #{userId}
+    </select>
+
+</mapper>

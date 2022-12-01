@@ -1,6 +1,9 @@
 server:
   port: 2382
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     url: jdbc:mysql://8.219.183.208:8999/marketonline
     username: fary

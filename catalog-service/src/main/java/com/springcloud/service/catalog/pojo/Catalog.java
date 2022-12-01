@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Data
@@ -21,8 +22,18 @@ public class Catalog implements Serializable {
     private long parentId;
 
     @Column(nullable = true,name = "level")
-    private int level;
+    private Integer level;
+
+    @Column(name = "sort",columnDefinition = "default '0'")
+    private Integer sort=0;
 
     @Column(nullable = true,name = "show_status")
     private boolean showStatus;
+
+    @Column(name = "create_date")
+    private Date createDate;
+
+    @Column(length=255,name = "icon")
+    private String icon;
+
 }

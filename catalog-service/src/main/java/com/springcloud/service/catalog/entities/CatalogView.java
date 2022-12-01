@@ -18,5 +18,7 @@ public class CatalogView {
 
     private boolean showStatus;
 
+    private String icon;
+
     List<CatalogView> subList;
 }
