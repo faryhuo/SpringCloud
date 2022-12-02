@@ -14,5 +14,12 @@
     <select id="getUserFollowingListByUserId" parameterType="java.lang.Long" resultMap="userFollowingMap" resultType="com.bilibili.follow.pojo.UserFollowing">
         select * from t_user_following where user_id = #{userId}
     </select>
+    <insert id="addUserFollowing" parameterType="com.bilibili.follow.pojo.UserFollowing">
+        insert into t_user_following(user_id,following_id,group_id,create_date,update_date)
+        values(#{userId},#{followingId},#{groupId},#{createDate},#{updateDate})
+    </insert>
 
+    <delete id="deleteUserFollowing" parameterType="java.util.Map" >
+        delete from t_user_following where user_id=#{userId} and following_id=#{followingId}
+    </delete>
 </mapper>

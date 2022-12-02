@@ -3,8 +3,7 @@ package com.springcloud.service.catalog;
 
 
 
-import com.springcloud.feign.api.client.UserClient;
-import com.springcloud.feign.api.config.DefaultFeignConfiguration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

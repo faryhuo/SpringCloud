@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface FollowingGroupDao {
     List<FollowingGroup> getFollowGroupByUserId(Long userId) throws SQLException;
-    List<FollowingGroup> getFollowGroupByType(Long type) throws SQLException;
+    List<FollowingGroup> getFollowGroupByType(long type ,long userId) throws SQLException;
 
     FollowingGroup getFollowGroupById(Long id) throws SQLException;
-
+    FollowingGroup getFollowGroupByNameAndUserId(String name,Long userId);
+    Long addFollowingGroup(FollowingGroup followingGroup) throws SQLException;
+    Long deleteFollowingGroup(Long id) throws SQLException;
 }

@@ -8,5 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface UserFollowingDao {
-    List<UserFollowing> getUserFollowingListByUserId(Long userId) throws SQLException;;
+    List<UserFollowing> getUserFollowingListByUserId(Long userId) throws SQLException;
+    Long addUserFollowing(UserFollowing userFollowing) throws SQLException;
+    Long deleteUserFollowing(long userId, long followingId) throws SQLException;
+
 }

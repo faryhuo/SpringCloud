@@ -35,10 +35,15 @@ public class UserController {
         return JsonResponse.ok(userService.login(user.getPhone(),user.getPassword()));
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/user")
     public JsonResponse<User> getUserInfo() throws Exception {
         Long userId=userSupport.getCurrentUserId();
         return JsonResponse.ok(userService.getUserById(userId));
+    }
+
+    @GetMapping(value = "/user/{userId}")
+    public JsonResponse<Boolean> checkUserIfExisting(@PathVariable("userId") Long userId) throws Exception {
+        return JsonResponse.ok(userService.getUserById(userId)!=null);
     }
 
 }

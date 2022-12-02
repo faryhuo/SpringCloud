@@ -13,6 +13,10 @@ server:
 mybatis:
  mapper-locations: classpath:mapper/*.xml
  type-aliases-package: com.bilibili.user.dao
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8111/eureka
 app:
   swagger:
     enable: true

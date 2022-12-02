@@ -5,20 +5,33 @@
     <resultMap type="com.bilibili.follow.pojo.FollowingGroup" id="followingGroupMap">
         <result column="id" property="id"/>
         <result column="user_id" property="userId"/>
-        <result column="following_id" property="followingId"/>
-        <result column="group_id" property="groupId"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
         <result column="create_date" property="createDate"/>
         <result column="update_date" property="updateDate"/>
     </resultMap>
     <select id="getFollowGroupByUserId" parameterType="java.lang.Long" resultMap="followingGroupMap">
-        select * from t_following_group where user_id = #{userId}
+        select * from t_following_group where user_id = #{userId} or user_id= 0
     </select>
 
-    <select id="getFollowGroupByType" parameterType="java.lang.Long" resultMap="followingGroupMap">
-        select * from t_following_group where 'type' = #{type}
+    <select id="getFollowGroupByType" parameterType="java.util.Map"  resultMap="followingGroupMap">
+        select * from t_following_group where 'type' = #{type} and 'user_id' = #{userId}
+    </select>
+
+    <select id="getFollowGroupByNameAndUserId"  parameterType="java.util.Map"  resultMap="followingGroupMap">
+        select * from t_following_group where 'name' = #{name} and 'user_id' = #{userId}
     </select>
 
     <select id="getFollowGroupById" parameterType="java.lang.Long" resultMap="followingGroupMap">
         select * from t_following_group where 'id' = #{id}
     </select>
+
+    <insert id="addFollowingGroup" parameterType="com.bilibili.follow.pojo.FollowingGroup">
+        insert into t_following_group(user_id,type,name,create_date,update_date)
+        values(#{userId},#{type},#{name},#{create_date},#{update_date})
+    </insert>
+
+    <delete id="deleteFollowingGroup"  parameterType="java.lang.Long" >
+        delete from t_following_group where 'id' = #{id}
+    </delete>
 </mapper>

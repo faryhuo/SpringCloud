@@ -8,7 +8,7 @@ import java.util.Date;
 public class FollowingGroup {
     private Long id;
     private Long userId;
-    private Long groupId;
+    private Long type;
     private String name;
     private Date createDate;
     private Date updateDate;
