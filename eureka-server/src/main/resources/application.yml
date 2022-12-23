@@ -2,12 +2,12 @@ server:
   port: 8111
 spring:
   application:
-    name: eurekaserver
+    name: eureka-server
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:8111/eureka
-userservice:
+      defaultZone: http://faryhuo.online:8111/eureka
+user-service:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # random
     #NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule #配置规则 轮询

@@ -55,7 +55,7 @@ public class FollowingController {
 
 
     @GetMapping("/user-followings")
-    public JsonResponse<UserFollowingModel> getUserFollowings(Long groupId) throws Exception {
+    public JsonResponse<List<UserFollowingModel>> getUserFollowings(Long groupId) throws Exception {
         Long userId= UserSupport.getCurrentUserId();
         return JsonResponse.ok(userFollowingService.getUserFollowingListByUserIdAndGroupId(userId,groupId));
     }

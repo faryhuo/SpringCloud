@@ -3,6 +3,7 @@ package com.bilibili.follow.service.impl;
 import com.bilibili.common.model.JsonResponse;
 import com.bilibili.follow.dao.FollowingGroupDao;
 import com.bilibili.follow.exception.ConditionException;
+import com.bilibili.follow.model.UserFollowingModel;
 import com.bilibili.follow.pojo.FollowingGroup;
 import com.bilibili.follow.pojo.UserFollowing;
 import com.bilibili.follow.service.UserFollowingService;
@@ -63,5 +64,10 @@ public class UserFollowingServiceImpl implements UserFollowingService {
             throw new ConditionException("Not found the following user");
         }
         return userFollowingDao.deleteUserFollowing(userId,followingId)>0;
+    }
+
+    @Override
+    public List<UserFollowingModel> getUserFollowingListByUserIdAndGroupId(long userId, long groupId) throws SQLException {
+        return null;
     }
 }

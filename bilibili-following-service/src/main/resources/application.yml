@@ -1,13 +1,16 @@
 spring:
   profiles:
     active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
-    url: jdbc:mysql://8.219.183.208:8999/marketonline
+    url: jdbc:mysql://8.219.183.208:3306/bilibili
     username: fary
     password: 85549060@fary
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
-    name: user-service
+    name: following-service
 server:
    port: 8081
 mybatis:

@@ -1,8 +1,11 @@
 spring:
   profiles:
     active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
-    url: jdbc:mysql://8.219.183.208:8999/marketonline
+    url: jdbc:mysql://104.168.135.39:3306/bilibili
     username: fary
     password: 85549060@fary
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,9 +17,14 @@ mybatis:
  mapper-locations: classpath:mapper/*.xml
  type-aliases-package: com.bilibili.user.dao
 eureka:
+  instance:
+    hostname: faryhuo.online
+    preferIpAddress: true
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     service-url:
-      defaultZone: http://127.0.0.1:8111/eureka
+      defaultZone: http://faryhuo.online:8111/eureka/
 app:
   swagger:
     enable: true
