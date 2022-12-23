@@ -20,7 +20,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>spring-cloud-project</groupId>
+            <groupId>com.bilibili</groupId>
             <artifactId>feign-api</artifactId>
             <version>1.0</version>
         </dependency>
