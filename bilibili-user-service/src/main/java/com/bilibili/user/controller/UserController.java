@@ -6,6 +6,8 @@ import com.bilibili.user.model.UserModel;
 import com.bilibili.user.pojo.User;
 import com.bilibili.user.service.UserService;
 import com.bilibili.user.utils.UserSupport;
+import io.swagger.annotations.ApiImplicitParam;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,10 +34,16 @@ public class UserController {
 
     @PostMapping(value = "/user-tokens")
     public JsonResponse<String> login(@RequestBody UserModel user) throws Exception {
-        return JsonResponse.ok(userService.login(user.getPhone(),user.getPassword()));
+        String token=userService.login(user.getPhone(),user.getPassword());
+        if(StringUtils.isNotBlank(token)) {
+            return JsonResponse.ok(token);
+        }else{
+            return JsonResponse.fail("Failed to login");
+        }
     }
 
     @GetMapping(value = "/user")
+    @ApiImplicitParam(value = "token",name = "token", paramType = "header",dataType="String", required = true)
     public JsonResponse<User> getUserInfo() throws Exception {
         Long userId=userSupport.getCurrentUserId();
         return JsonResponse.ok(userService.getUserById(userId));

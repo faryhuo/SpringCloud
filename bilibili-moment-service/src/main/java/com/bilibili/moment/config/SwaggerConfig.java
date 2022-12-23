@@ -1,4 +1,4 @@
-package com.bilibili.user.config;
+package com.bilibili.moment.config;
 
 
 import com.bilibili.common.config.CommonSwaggerConfig;
